@@ -34,6 +34,7 @@ public class Bot extends TelegramLongPollingBot {
             log.log(Level.SEVERE, "Exception: ", e.toString());
         }
     }
+//dfdf
 
     public String getBotUsername() {
         return "mcDudleBot";
