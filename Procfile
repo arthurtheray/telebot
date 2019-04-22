@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp /src/main/java/org/telegram/ Bot
+web: java $JAVA_OPTS -cp web: java $JAVA_OPTS -cp target/classes:target/dependency/* Bot
