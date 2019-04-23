@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* org.telegram.Bot mcDudleBot 855976947:AAH-MfKwr5e36uB3G7oscVJpTfweqocL168
+web: java $JAVA_OPTS -cp target/classes:target/dependency/* org.telegram.Main mcDudleBot 855976947:AAH-MfKwr5e36uB3G7oscVJpTfweqocL168
