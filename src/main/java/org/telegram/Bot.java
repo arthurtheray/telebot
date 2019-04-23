@@ -4,7 +4,6 @@ import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
@@ -15,6 +14,8 @@ import java.util.logging.Logger;
 public class Bot extends TelegramLongPollingBot {
 
     private static Logger log = Logger.getLogger(Bot.class.getName());
+    private static String botUsername;
+    private static String botToken;
 
     public void onUpdateReceived(Update update) {
 
@@ -34,20 +35,27 @@ public class Bot extends TelegramLongPollingBot {
             log.log(Level.SEVERE, "Exception: ", e.toString());
         }
     }
-//dfdfdfgfdf
 
     public String getBotUsername() {
-        return "mcDudleBot";
+        return botUsername;
     }
 
     public String getBotToken() {
-        return "855976947:AAH-MfKwr5e36uB3G7oscVJpTfweqocL168";
+        return botToken;
     }
 
     public static void main(String[] args) {
+
+        if (args.length != 2) {
+            log.log(Level.SEVERE, "Error: missing arguments");
+            return;
+        }
+
+        botUsername = args[0];
+        botToken = args[1];
+
         ApiContextInitializer.init();
         TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
-
 
         try {
             telegramBotsApi.registerBot(new Bot());
