@@ -8,6 +8,14 @@
     <artifactId>telegrambots</artifactId>
     <version>3.6.1</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.telegram</groupId>
+            <artifactId>telegrambots</artifactId>
+            <version>4.2</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
