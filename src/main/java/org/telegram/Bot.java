@@ -32,11 +32,11 @@ public class Bot extends TelegramLongPollingBot {
     }
 
     public String getBotUsername() {
-        return Main.botUsername;
+        return Main.getBotUsername();
     }
 
     public String getBotToken() {
-        return Main.botToken;
+        return Main.getBotToken();
     }
 
 

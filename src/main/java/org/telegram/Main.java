@@ -10,8 +10,16 @@ import java.util.logging.Logger;
 public class Main {
 
     private static Logger log = Logger.getLogger(Bot.class.getName());
-    public static String botUsername;
-    public static String botToken;
+    private static String botUsername;
+    private static String botToken;
+
+    public static String getBotUsername() {
+        return botUsername;
+    }
+
+    public static String getBotToken() {
+        return botToken;
+    }
 
     public static void main(String[] args) {
 
