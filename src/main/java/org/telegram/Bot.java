@@ -14,12 +14,26 @@ public class Bot extends TelegramLongPollingBot {
 
     public void onUpdateReceived(Update update) {
 
-        String command = update.getMessage().getText();
-        sendMsg(update.getMessage().getChatId().toString(), command);
+        if (update.getMessage().hasText()) {
+            String command = update.getMessage().getText();
+            sendReply(update.getMessage().getChatId().toString(), command);
+        }
+
+        if (update.getMessage().hasPhoto()) {
+            sendReply(update.getMessage().getChatId().toString(), "фото");
+        }
+
+        if (!update.getMessage().isGroupMessage() && !update.getMessage().isChannelMessage()) {
+            sendReply(update.getMessage().getChatId().toString(), " Добовьте бота на канал или в группу");
+        }
+
+        if (update.getMessage().isChannelMessage() || update.getMessage().isGroupMessage()) {
+            sendReply(update.getMessage().getChatId().toString(), " бот на канале (или в группе");
+        }
 
     }
 
-    public synchronized void sendMsg(String chatId, String command) {
+    private synchronized void sendReply(String chatId, String command) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.enableMarkdown(true);
         sendMessage.setChatId(chatId);
